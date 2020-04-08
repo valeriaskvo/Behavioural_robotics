@@ -1,0 +1,42 @@
+Program Arguments: 
+-f [filename]             : the file containing the parameters shown below (mandatory)
+-s [integer]              : the number used to initialize the seed
+-n [integer]              : the number of replications to be run
+-a [algorithm]            : the algorithm: CMAES, Salimans, xNES, sNES, or SSS (default Salimans)
+-t [filename]             : the .npy file containing the policy to be tested
+-T [filename]             : the .npy file containing the policy to be tested, display neurons
+-d [directory]            : the directory where all output files are stored (default current dir)
+-tf                       : use tensorflow policy (valid only for gym and pybullet
+
+The .ini file contains the following [ADAPT] and [POLICY] parameters:
+[ADAPT]
+environment [string]      : environment (default 'CartPole-v0'
+maxmsteps [integer]       : max number of (million) steps (default 1)
+sampleSize [integer]      : number of samples (default 20)
+stepsize [float]          : learning stepsize (default 0.01)
+noiseStdDev [float]       : samples noise (default 0.02)
+wdecay [0/2]              : weight decay (default 0), 1 = L1, 2 = L2
+sameenvcond [0/1]         : samples experience the same environmental conditions
+evalCenter [0/1]          : whether or not centroid is evaluated (default 1)
+saveeach [integer]        : save data each n minutes (default 60)
+saveeachg [integer]       : save pop data each n generation (default 0)
+fromgeneration [integer]  : restart from generation n (default 0)
+nrobots [integer]         : number of robots (default 1)
+heterogeneous [integer]   : whether robots are heterogeneous (default 0)
+algo [string]             : adaptive algorithm (default 'Salimans') CMAES, xNES, sNES, pepg, SSS, coevo2
+[POLICY]
+ntrials [integer]         : number of evaluation episodes (default 1)
+nttrials [integer]        : number of post-evaluation episodes (default 0)
+maxsteps [integer]        : number of evaluation steps [for EREnvs only] (default 1000)
+nhiddens [integer]        : number of hidden x layer (default 50)
+nlayers [integer]         : number of hidden layers (default 1)
+bias [0/1]                : whether we have biases (default 0)
+out_type [integer]        : type of output: 1=logistic, 2=tanh, 3=linear, 4=binary (default 2)
+nbins [integer]           : number of bins 1=no-beans (default 1)
+architecture [0/1/2/3]    : network architecture 0=feedforward 1=recurrent 2=fullrecurrent 3=lstm recurrent (default 0)
+afunction [1/2/3]         : the activation function of neurons 1=logistic 2=tanh 3=linear (default 2)
+winit [0/1/2]             : weight initialization 0=xavier 1=norm incoming 2=uniform (default 0)
+action_noise [0/1/2]      : action noise 0=none, 1=gaussian 2=gaussian-parametric (default 0)
+action_noise_range        : action noise range (default 0.01)
+normalized [0/1]          : whether or not the input observations are normalized (default 1)
+clip [0/1]                : whether we clip observation in [-5,5] (default 0)
